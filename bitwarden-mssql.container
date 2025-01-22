@@ -1,0 +1,22 @@
+[Unit]
+Description=Bitwarden MSSQL Container
+Wants=network.target
+After=network.target
+
+[Container]
+Image=docker.io/bitwarden/mssql:latest
+ContainerName=bitwarden-mssql
+
+StopTimeout=60
+
+HostName=mssql
+
+Volume=/home/bitwarden/bwdata/mssql/data:/var/opt/mssql/data
+Volume=/home/bitwarden/bwdata/logs/mssql:/var/opt/mssql/log
+Volume=/home/bitwarden/bwdata/mssql/backups:/etc/bitwarden/mssql/backups
+
+EnvironmentFile=/home/bitwarden/bwdata/docker/mssql.env
+EnvironmentFile=/home/bitwarden/bwdata/env/uid.env
+EnvironmentFile=/home/bitwarden/bwdata/env/mssql.override.env
+
+Network=bitwarden

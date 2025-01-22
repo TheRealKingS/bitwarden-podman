@@ -1,0 +1,21 @@
+[Unit]
+Description=Bitwarden SSO Container
+Wants=bitwarden-identity.container
+After=bitwarden-identity.container
+
+[Container]
+Image=docker.io/bitwarden/sso:latest
+ContainerName=bitwarden-sso
+
+HostName=sso
+
+Volume=/home/bitwarden/bwdata/identity:/etc/bitwarden/identity
+Volume=/home/bitwarden/bwdata/core:/etc/bitwarden/core
+Volume=/home/bitwarden/bwdata/ca-certificates:/etc/bitwarden/ca-certificates
+Volume=/home/bitwarden/bwdata/logs/sso:/etc/bitwarden/logs
+
+EnvironmentFile=/home/bitwarden/bwdata/docker/global.env
+EnvironmentFile=/home/bitwarden/bwdata/env/uid.env
+EnvironmentFile=/home/bitwarden/bwdata/env/global.override.env
+
+Network=bitwarden

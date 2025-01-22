@@ -1,0 +1,19 @@
+[Unit]
+Description=Bitwarden Events Container
+Wants=bitwarden-api.container
+After=bitwarden-api.container
+
+[Container]
+Image=docker.io/bitwarden/events:latest
+ContainerName=bitwarden-events
+
+HostName=events
+
+Volume=/home/bitwarden/bwdata/ca-certificates:/etc/bitwarden/ca-certificates
+Volume=/home/bitwarden/bwdata/logs/events:/etc/bitwarden/logs
+
+EnvironmentFile=/home/bitwarden/bwdata/docker/global.env
+EnvironmentFile=/home/bitwarden/bwdata/env/uid.env
+EnvironmentFile=/home/bitwarden/bwdata/env/global.override.env
+
+Network=bitwarden

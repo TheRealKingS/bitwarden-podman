@@ -1,0 +1,11 @@
+[Unit]
+Description=Bitwarden Podman Network
+After=network-online.target
+
+[Network]
+NetworkName=bitwarden
+IPv6=true
+Internal=false
+
+[Install]
+WantedBy=default.target

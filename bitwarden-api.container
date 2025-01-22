@@ -1,0 +1,20 @@
+[Unit]
+Description=Bitwarden API Container
+Wants=bitwarden-mssql.container
+After=bitwarden-mssql.container
+
+[Container]
+Image=docker.io/bitwarden/api:latest
+ContainerName=bitwarden-api
+
+HostName=api
+
+Volume=/home/bitwarden/bwdata/core:/etc/bitwarden/core
+Volume=/home/bitwarden/bwdata/ca-certificates:/etc/bitwarden/ca-certificates
+Volume=/home/bitwarden/bwdata/logs/api:/etc/bitwarden/logs
+
+EnvironmentFile=/home/bitwarden/bwdata/docker/global.env
+EnvironmentFile=/home/bitwarden/bwdata/env/uid.env
+EnvironmentFile=/home/bitwarden/bwdata/env/global.override.env
+
+Network=bitwarden

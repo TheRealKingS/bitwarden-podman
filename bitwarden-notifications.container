@@ -1,0 +1,19 @@
+[Unit]
+Description=Bitwarden Notifications Container
+Wants=bitwarden-api.container
+After=bitwarden-api.container
+
+[Container]
+Image=docker.io/bitwarden/notifications:latest
+ContainerName=bitwarden-notifications
+
+HostName=notifications
+
+Volume=/home/bitwarden/bwdata/ca-certificates:/etc/bitwarden/ca-certificates
+Volume=/home/bitwarden/bwdata/logs/notifications:/etc/bitwarden/logs
+
+EnvironmentFile=/home/bitwarden/bwdata/docker/global.env
+EnvironmentFile=/home/bitwarden/bwdata/env/uid.env
+EnvironmentFile=/home/bitwarden/bwdata/env/global.override.env
+
+Network=bitwarden

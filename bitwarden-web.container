@@ -1,0 +1,17 @@
+[Unit]
+Description=Bitwarden Web Container
+Wants=bitwarden-mssql.container
+After=bitwarden-mssql.container
+
+[Container]
+Image=docker.io/bitwarden/web:latest
+ContainerName=bitwarden-web
+
+HostName=web
+
+Volume=/home/bitwarden/bwdata/web:/etc/bitwarden/web
+
+EnvironmentFile=/home/bitwarden/bwdata/docker/global.env
+EnvironmentFile=/home/bitwarden/bwdata/env/uid.env
+
+Network=bitwarden

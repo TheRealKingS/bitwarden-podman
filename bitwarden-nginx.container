@@ -1,0 +1,21 @@
+[Unit]
+Description=Bitwarden Nginx Container
+Wants=bitwarden-web.container
+After=bitwarden-web.container
+
+[Container]
+Image=docker.io/bitwarden/nginx:latest
+ContainerName=bitwarden-nginx
+
+PublishPort=8099:8080
+
+HostName=nginx
+
+Volume=/home/bitwarden/bwdata/nginx:/etc/bitwarden/nginx
+Volume=/home/bitwarden/bwdata/letsencrypt:/etc/letsencrypt
+Volume=/home/bitwarden/bwdata/ssl:/etc/ssl
+Volume=/home/bitwarden/bwdata/logs/nginx:/var/log/nginx
+
+EnvironmentFile=/home/bitwarden/bwdata/env/uid.env
+
+Network=bitwarden

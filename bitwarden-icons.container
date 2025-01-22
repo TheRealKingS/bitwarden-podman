@@ -1,0 +1,18 @@
+[Unit]
+Description=Bitwarden Icons Container
+Wants=bitwarden-api.container
+After=bitwarden-api.container
+
+[Container]
+Image=docker.io/bitwarden/icons:latest
+ContainerName=bitwarden-icons
+
+HostName=icons
+
+Volume=/home/bitwarden/bwdata/ca-certificates:/etc/bitwarden/ca-certificates
+Volume=/home/bitwarden/bwdata/logs/icons:/etc/bitwarden/logs
+
+EnvironmentFile=/home/bitwarden/bwdata/docker/global.env
+EnvironmentFile=/home/bitwarden/bwdata/env/uid.env
+
+Network=bitwarden

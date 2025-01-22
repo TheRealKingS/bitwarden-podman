@@ -1,0 +1,17 @@
+[Unit]
+Description=Bitwarden Attachments Container
+Wants=bitwarden-mssql.container
+After=bitwarden-mssql.container
+
+[Container]
+Image=docker.io/bitwarden/attachments:latest
+ContainerName=bitwarden-attachments
+
+HostName=attachments
+
+Volume=/home/bitwarden/bwdata/core/attachments:/etc/bitwarden/core/attachments
+
+EnvironmentFile=/home/bitwarden/bwdata/docker/global.env
+EnvironmentFile=/home/bitwarden/bwdata/env/uid.env
+
+Network=bitwarden
