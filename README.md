@@ -29,6 +29,13 @@ mkdir -p ~/.config/containers/systemd
 cp bitwarden-podman/* ~/.config/containers/systemd
 ```
 
+Now set the network cmd in `~/.config/containers/containers.conf`:
+
+```
+[network]
+default_rootless_network_cmd = "slirp4netns"
+```
+
 Last step: relaod systemd daemon and start all containers
 
 ```
@@ -74,10 +81,6 @@ Now your bitwarden vault is reachable under http://<Your Domain>:8099. If you li
 
 </VirtualHost>
 ```
-
-# ToDo's
-* Correct order of starting containers
-* Host is not reachable from the bitwarden-admin container, so no admin login at the moment
 
 # Further links
 
