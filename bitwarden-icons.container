@@ -4,7 +4,7 @@ Wants=bitwarden-api.container
 After=bitwarden-api.container
 
 [Container]
-Image=docker.io/bitwarden/icons:latest
+Image=ghcr.io/bitwarden/icons:latest
 ContainerName=bitwarden-icons
 
 HostName=icons

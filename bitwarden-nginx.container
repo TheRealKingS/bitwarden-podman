@@ -4,7 +4,7 @@ Wants=bitwarden-web.container
 After=bitwarden-web.container
 
 [Container]
-Image=docker.io/bitwarden/nginx:latest
+Image=ghcr.io/bitwarden/nginx:latest
 ContainerName=bitwarden-nginx
 
 PublishPort=8099:8080

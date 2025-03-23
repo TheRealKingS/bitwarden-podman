@@ -4,7 +4,7 @@ Wants=bitwarden-mssql.container
 After=bitwarden-mssql.container
 
 [Container]
-Image=docker.io/bitwarden/admin:latest
+Image=ghcr.io/bitwarden/admin:latest
 ContainerName=bitwarden-admin
 
 HostName=admin

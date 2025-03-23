@@ -4,7 +4,7 @@ Wants=bitwarden-mssql.container
 After=bitwarden-mssql.container
 
 [Container]
-Image=docker.io/bitwarden/attachments:latest
+Image=ghcr.io/bitwarden/attachments:latest
 ContainerName=bitwarden-attachments
 
 HostName=attachments

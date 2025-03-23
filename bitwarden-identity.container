@@ -4,7 +4,7 @@ Wants=bitwarden-api.container
 After=bitwarden-api.container
 
 [Container]
-Image=docker.io/bitwarden/identity:latest
+Image=ghcr.io/bitwarden/identity:latest
 ContainerName=bitwarden-identity
 
 HostName=identity
