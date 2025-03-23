@@ -1,10 +1,13 @@
 [Unit]
 Description=Bitwarden Nginx Container
-Wants=bitwarden-web.container
-After=bitwarden-web.container
+
+Wants=bitwarden-web.container bitwarden-admin.container bitwarden-api.container bitwarden-attachments.container bitwarden-events.container bitwarden-icons.container bitwarden-identity.container bitwarden-mssql.container bitwarden.container bitwarden-notifications.container bitwarden-sso.container bitwarden-web.container
+
+After=bitwarden-admin.container bitwarden-api.container bitwarden-attachments.container bitwarden-events.container bitwarden-icons.container bitwarden-identity.container bitwarden-mssql.container bitwarden.container bitwarden-notifications.container bitwarden-sso.container bitwarden-web.container
 
 [Container]
 Image=ghcr.io/bitwarden/nginx:latest
+AutoUpdate=registry
 ContainerName=bitwarden-nginx
 
 PublishPort=8099:8080

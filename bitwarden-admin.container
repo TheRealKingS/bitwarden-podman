@@ -5,6 +5,7 @@ After=bitwarden-mssql.container
 
 [Container]
 Image=ghcr.io/bitwarden/admin:latest
+AutoUpdate=registry
 ContainerName=bitwarden-admin
 
 HostName=admin

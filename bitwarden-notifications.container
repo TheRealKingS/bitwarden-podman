@@ -5,6 +5,7 @@ After=bitwarden-api.container
 
 [Container]
 Image=ghcr.io/bitwarden/notifications:latest
+AutoUpdate=registry
 ContainerName=bitwarden-notifications
 
 HostName=notifications

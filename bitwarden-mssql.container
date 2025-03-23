@@ -5,6 +5,7 @@ After=network.target
 
 [Container]
 Image=ghcr.io/bitwarden/mssql:latest
+AutoUpdate=registry
 ContainerName=bitwarden-mssql
 
 StopTimeout=60

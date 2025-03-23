@@ -5,6 +5,7 @@ After=bitwarden-api.container
 
 [Container]
 Image=ghcr.io/bitwarden/icons:latest
+AutoUpdate=registry
 ContainerName=bitwarden-icons
 
 HostName=icons
