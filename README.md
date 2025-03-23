@@ -40,7 +40,6 @@ Last step: relaod systemd daemon and start all containers
 ### Adjust Rootless Networking
 **IMPORTANT:**  
 The default rootless network driver is `pasta`, which prevents host accessibility. To fix this, create the file `~/.config/containers/containers.conf` with the following content:
->>>>>>> 829edd6dbc346418b898179cd5272066fb646a30
 
 ```ini
 [network]
